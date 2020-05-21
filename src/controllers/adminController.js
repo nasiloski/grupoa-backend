@@ -1,4 +1,5 @@
 const database = require('../services/database');
+const jwt = require('../services/authToken');
 
 module.exports = {
     async auth(req, res) {
@@ -8,7 +9,9 @@ module.exports = {
         if(!data[0]) return res.status(500).json({ error: "Usuário ou senha inválidos." });
         const admpasswd = data[0].password;
         if(password != admpasswd) return res.status(200).json({ error: "Usuário ou senha inválidos." });
-        return res.status(200).json({ message: "Usuário autenticado." })
+        const user = data[0];
+        user.password = undefined;
 
+        return res.status(200).json({ user, token: jwt.createUserToken(user.cd_usuario) });
     }
 }
