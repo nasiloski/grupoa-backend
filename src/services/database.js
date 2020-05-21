@@ -40,9 +40,19 @@ module.exports = {
             });
         });
     },
-    update(nome, email, cpf){
+    
+    update(nome, email, cpf, ra){
         return new Promise ((resolve, reject) => {
-            connection.query(`update alunos set nome='${nome}', email='${email}', cpf='${cpf}'`, function(error, result, fields) {
+            connection.query(`update alunos set nome='${nome}', email='${email}', cpf='${cpf}' where ra=${ra}`, function(error, result, fields) {
+                if(error) reject(error);
+                resolve(result);
+            });
+        });
+    },
+    
+    findAdmin(name){
+        return new Promise ((resolve, reject) => {
+            connection.query(`select * from admin_user where nome='${name}'`, function(error, result, fields){
                 if(error) reject(error);
                 resolve(result);
             });

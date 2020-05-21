@@ -54,5 +54,17 @@ module.exports = {
             return res.status(500).json({ error: "Erro interno" });
         }
 
+    },
+    async update (req, res) {
+        const { name, email, cpf, ra } = req.body;
+        try {
+            const data = await database.update(name, email, cpf, ra);
+            return res.status(200).json({ message: "Cadastro atualizado" });
+
+        } catch (err) {
+            console.log(`MySQL: Erro no banco de dados:${err}`)
+            return res.status(500).json({ error: "Erro interno" });
+        }
+
     }
 }
