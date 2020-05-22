@@ -3,10 +3,10 @@ const database = require("../services/database");
 module.exports = {
     async store(req, res) {
         const { name, email, ra, cpf } = req.body;
-        if(!name || !email || !ra || !cpf) return res.status(500).json({ error: "Dados insuficientes" });
+        if(!name || !email || !ra || !cpf) return res.status(400).json({ error: "Dados insuficientes" });
         try {
             let data = await database.findByRa(ra);
-            if(data.length > 0) return res.status(500).json({ error: "Ra informada já está cadastrada" });
+            if(data.length > 0) return res.status(406).json({ error: "Ra informada já está cadastrada" });
             data = await database.create(name, email, ra, cpf);
             return res.status(200).json({ message: "Aluno cadastrado com sucesso." });
 
@@ -19,7 +19,7 @@ module.exports = {
     async show (req, res) {
         try {
             const data = await database.findAll();
-            if(data.length === 0) return res.status(500).json({ message: "Não existem usuários cadastrados" });
+            if(data.length === 0) return res.status(200).json({ message: "Não existem usuários cadastrados" });
             return res.status(200).json(data);
 
         } catch (err) {
@@ -30,7 +30,7 @@ module.exports = {
 
     async destroy (req, res) {
         const { ra } = req.params;
-        if(!ra) return res.status(500).json({ error: "Dados insuficientes" });
+        if(!ra) return res.status(406).json({ error: "Dados insuficientes" });
         try {
             const data = await database.deleteByRa(ra);
             return res.status(200).json({ message: "Aluno deletado com sucesso." });
@@ -43,10 +43,10 @@ module.exports = {
 
     async studentsData (req, res){
         const { ra } = req. params;
-        if(!ra) return res.status(500).json({ error: "Dados insuficientes" });
+        if(!ra) return res.status(406).json({ error: "Dados insuficientes" });
         try {
             const data = await database.findByRa(ra);
-            if(data.length === 0) return res.status(500).json({ error: "Nenhum dado encontrado ou aluno ja removido" });
+            if(data.length === 0) return res.status(406).json({ error: "Nenhum dado encontrado ou aluno ja removido" });
             return res.status(200).json(data[0]);
 
         } catch (err) {
