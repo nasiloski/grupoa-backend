@@ -5,7 +5,7 @@ module.exports = {
     async auth(req, res) {
         const { username, password } = req.body;
         
-        if(!username || !password) return res.status(200).json({ error: "Dados informados insuficientes" });
+        if(!username || !password) return res.status(403).json({ error: "Dados informados insuficientes" });
         try{
             const data = await database.findAdmin(username);
             

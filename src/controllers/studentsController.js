@@ -19,7 +19,7 @@ module.exports = {
     async show (req, res) {
         try {
             const data = await database.findAll();
-            if(data.length === 0) return res.status(200).json({ message: "Não existem usuários cadastrados" });
+            if(data.length === 0) return res.status(204).json({ message: "Não existem usuários cadastrados" });
             return res.status(200).json(data);
 
         } catch (err) {

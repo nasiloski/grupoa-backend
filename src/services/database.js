@@ -8,7 +8,7 @@ function createTables(){
                         "ra int(6) NOT NULL, \n" +
                         "nome varchar (60) NOT NULL, \n" +
                         "email varchar(50),\n" +
-                        "cpf int(11) NOT NULL, \n" +
+                        "cpf varchar(20) NOT NULL, \n" +
                         "primary key (ra) \n" +
                         ");";
 
