@@ -32,7 +32,7 @@ module.exports = {
         }
       },
       {
-        name      : "Fronend",
+        name      : "Frontend",
         script    : "npx",
         interpreter: "none",
         args: "serve -s ../grupoa_frontend/build -p 80",
