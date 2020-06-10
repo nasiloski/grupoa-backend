@@ -35,7 +35,7 @@ module.exports = {
         name      : "Fronend",
         script    : "yarn",
         interpreter: "none",
-        args: "serve -p 80 -T",
+        args: "serve -s build -l 80",
         env: {
           PORT: '80'
         },
