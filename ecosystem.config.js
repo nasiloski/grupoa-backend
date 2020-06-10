@@ -25,9 +25,9 @@ module.exports = {
         },
         env_homolog : {
           DBHOST: '127.0.0.1',
-          DBUSER: 'grupoa',
-          DBPASSWD: 'grupoa',
-          DATABASE: 'grupoa',
+          DBUSER: 'grupoa_dev',
+          DBPASSWD: 'grupoa_dev',
+          DATABASE: 'grupoa_dev',
           TOKENPASSWD: 'Teste12345@!'
         }
       },   
