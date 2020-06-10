@@ -30,6 +30,23 @@ module.exports = {
           DATABASE: 'grupoa_dev',
           TOKENPASSWD: 'Teste12345@!'
         }
-      },   
+      },
+      {
+        name: 'FronEnd',
+        script: '../grupoa_frontend/node_modules/react-scripts/scripts/start.js',
+        cwd: __dirname ,
+        instances: 1,
+        autorestart: true,
+        wait_ready: true,
+        env: {
+          PORT: '80'
+        },
+        env_production: {
+          PORT: '80'
+        },
+        env_homolog : {
+          PORT: '80'
+        }
+      },      
     ]
   };
