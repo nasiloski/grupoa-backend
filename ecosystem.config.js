@@ -33,9 +33,9 @@ module.exports = {
       },
       {
         name      : "Fronend",
-        script    : "yarn",
+        script    : "npx",
         interpreter: "none",
-        args: "serve -s build -l 80",
+        args: "serve -s ../grupoa_frontend/build -p 80",
         env: {
           PORT: '80'
         },
