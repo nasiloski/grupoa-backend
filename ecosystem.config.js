@@ -32,12 +32,10 @@ module.exports = {
         }
       },
       {
-        name: 'FronEnd',
-        script: 'yarn serve -s build -l 80',
-        cwd: __dirname ,
-        instances: 1,
-        autorestart: true,
-        wait_ready: true,
+        name      : "Fronend",
+        script    : "yarn",
+        interpreter: "none",
+        args: "serve -p 80 -T",
         env: {
           PORT: '80'
         },
