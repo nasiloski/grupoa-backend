@@ -33,7 +33,7 @@ module.exports = {
       },
       {
         name: 'FronEnd',
-        script: '../grupoa_frontend/node_modules/react-scripts/scripts/start.js',
+        script: 'yarn serve -s build -l 80',
         cwd: __dirname ,
         instances: 1,
         autorestart: true,
